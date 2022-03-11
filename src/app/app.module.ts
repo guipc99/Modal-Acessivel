@@ -7,6 +7,7 @@ import { ModalModule } from './shared/components/modal/modal.module';
 import { FocusTrapDirective } from './shared/directives/focus-trap/focus-trap/focus-trap.directive';
 import { FocusTrapModule } from './shared/directives/focus-trap/focus-trap/focus-trap.module';
 import { FocusBackModule } from './shared/directives/focus-back/focus-back/focus-back.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FocusBackModule } from './shared/directives/focus-back/focus-back/focus
     ModalModule,
     BrowserAnimationsModule,
     FocusTrapModule,
-    FocusBackModule
+    FocusBackModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

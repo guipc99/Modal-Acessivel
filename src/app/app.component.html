@@ -7,33 +7,51 @@
   (click)="show()">Exibir modal</button>
 
 <ng-template #modal>
+  <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-field">
     <label for="firstName">Nome</label>
-    <input id="firstName" [(value)]="firstName">
+    <input id="firstName"
+     formControlName="firstName" 
+     [(value)]="firstName"
+      [attr.aria-invalid]="form.get('firstName').invalid">
+    <span class="validation-error" *ngIf="form.get('firstName')?.errors?.required">
+      Preencha o campo nome!
+    </span>
   </div>
 
   <div class="form-field">
     <label for="surname">Sobrenome</label>
-    <input id="surname">
+    <input id="surname"
+     formControlName="surname"
+     [attr.aria-invalid]="form.get('surname').invalid">
+    <span class="validation-error" *ngIf="form.get('surname')?.errors?.required">
+      Preencha o campo sobrenome!
+    </span>
   </div>
 
   <div class="form-field">
     <label for="age">Idade</label>
-    <input id="age">
+    <input id="age" 
+    formControlName="age"
+    [attr.aria-invalid]="form.get('age').invalid">
+    <span class="validation-error" *ngIf="form.get('age')?.errors?.required">
+      Preencha o campo idade!
+    </span>
   </div>
 
     <label for="info">Informações adicionais</label>
-    <input type="checkbox" name="info" id="info" (change)="info = !info">
+    <input type="checkbox"  formControlName="info" name="info" id="info" (change)="info = !info">
     <p [@fade] *ngIf="info">Placeholder com mais Informações</p>
 
   <div class="button-group">
-    <button class="button button-primary" type="button">Enviar</button>
+    <button class="button button-primary" type="submit" [attr.aria-disabled]="form.invalid">Enviar</button>
     <button
       class="button button-secondary"
       type="button"
       (click)="modalRef.close()">Cancelar
     </button>
   </div>
+  </form>
 </ng-template>
  <!-- <ng-template #template1>
     <p>Template 1</p>
