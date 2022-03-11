@@ -4,16 +4,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalModule } from './shared/components/modal/modal.module';
+import { FocusTrapDirective } from './shared/directives/focus-trap/focus-trap/focus-trap.directive';
+import { FocusTrapModule } from './shared/directives/focus-trap/focus-trap/focus-trap.module';
+import { FocusBackModule } from './shared/directives/focus-back/focus-back/focus-back.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ModalModule,
     BrowserAnimationsModule,
+    FocusTrapModule,
+    FocusBackModule
   ],
   providers: [],
   bootstrap: [AppComponent]
